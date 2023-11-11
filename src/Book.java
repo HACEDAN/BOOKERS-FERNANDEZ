@@ -10,7 +10,7 @@ public class Book {
 	private SimpleDateFormat dateFormat = new SimpleDateFormat("MMMM dd, yyyy");
 	private boolean fiction, overdue = false, rented = false, available = true;
 	
-	
+	// Constructors
 	public Book (String title,  String author, String category, boolean fiction, String language, Date published,  Date added){
 		addBook(title,  author,  category, fiction, language,published,  added);
 		
@@ -26,17 +26,14 @@ public class Book {
 		this.dateAdded= added;
 		
 	}
-	
 
-	// setters
+	// Setter Methods
 	public void setTitle(String title) { this.title=title; }
 	public void setAuthor (String author) { this.authors = author; }
 	public void setCategory (String category) { this.category = category; }
 	public void setLanguage (String language) { this.language = language;}
 	public void setDateAdded (Date dateAdded) { this.dateAdded = dateAdded; }
 	public void setDateRented (Date dateRented) { this.dateRented = dateRented; }
-	
-	
 	
 	public void setDatePublished (Date datePublished) { this.datePublished = datePublished; }
 	
@@ -50,7 +47,6 @@ public class Book {
 			setDateDue(dateRented);
 			return;
 		}
-		
 		if (currentDate.after(dateDue) || status.equals("Overdue")) {
 				this.overdue=true;
 				return;
@@ -71,16 +67,16 @@ public class Book {
 		this.dateDue = calendar.getTime();
 	}
 
-	
 	public void setFiction (Boolean fiction) {this.fiction = fiction; }
 	public void setBookID (int iD) {this.bookID = iD; }
 	
-	// getters
+	// Getter Methods
 	public String getTitle() {return title; }
 	public String getAuthors() {return authors;} 
 	public String getCategory() { return category;}
 	public String getLanguage() { return language; } 
 	public String getDateAdded() { return dateFormat.format(dateAdded); }
+	
 	public String getDateRented() {
 		if (available == true && rented == false) {
 			return "Available";
